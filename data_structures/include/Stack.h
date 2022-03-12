@@ -19,7 +19,11 @@ public:
     }
 
     bool is_full() {
-        return (top == max_elements - 1);
+        return (top == max_elements);
+    }
+
+    T on_top() {
+        return array[top - 1];
     }
 
     void push(T object) {
