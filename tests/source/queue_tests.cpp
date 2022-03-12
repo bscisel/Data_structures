@@ -16,10 +16,15 @@ protected:
 
 
 TEST_F(QueueTest, basic_functionality) {
+    EXPECT_EQ(queue.rear(), 10);
     int dequeued = queue.dequeue();
     EXPECT_EQ(dequeued, 10);
+    EXPECT_EQ(queue.rear(), 20);
+    EXPECT_FALSE(queue.is_empty());
+    EXPECT_FALSE(queue.is_full());
     dequeued = queue.dequeue();
     EXPECT_EQ(dequeued, 20);
+    EXPECT_TRUE(queue.is_empty());
 }
 
 TEST_F(QueueTest, dequeue_empty) {
