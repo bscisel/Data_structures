@@ -15,4 +15,16 @@ struct QueueIsFull : public std::exception {
     }
 };
 
+struct StackIsEmpty : public std::exception {
+    [[nodiscard]] const char *what() const noexcept override {
+        return "Attempting to remove an object from an empty stack.";
+    }
+};
+
+struct StackIsFull : public std::exception {
+    [[nodiscard]] const char *what() const noexcept override {
+        return "Attempting to add an object to the full stack.";
+    }
+};
+
 #endif
