@@ -20,8 +20,8 @@ public:
         if (elementsCount == max_elements)
             throw QueueIsFull();
         array[tail] = object;
-        if (tail == max_elements)
-            tail = 1;
+        if (tail == max_elements - 1)
+            tail = 0;
         else
             tail++;
         elementsCount++;
@@ -31,8 +31,8 @@ public:
         if (elementsCount == 0)
             throw QueueIsEmpty();
         T object = array[head];
-        if (head == max_elements)
-            head = 1;
+        if (head == max_elements - 1)
+            head = 0;
         else
             head++;
         elementsCount--;
